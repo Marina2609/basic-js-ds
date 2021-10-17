@@ -97,21 +97,21 @@ module.exports = class BinarySearchTree {
       } else if (root.data < data){
         root.right = removeNode(root.right, data);
         return root;
-      } else {
-        if(root.left === null && root.right === null){
-          return null;
+      } else { //если значения равны
+        if(root.left === null && root.right === null){ //нету левого и правого потомка
+          return null; //вернуть ноль, лист удален
         }
         if(root.left === null){
-          root = root.right;
+          root = root.right; //заместить текущий узел его правым потомком
           return root;
         }
         if(root.right === null){
-          root = root.left;
+          root = root.left; //заместить текущий узел его левым потомком
           return root;
         }
 
         let minFromRight = root.right;
-        
+        //если есть и правый и левый потомки, ищем среди правого поддерева
         while (minFromRight.left){
           minFromRight = minFromRight.left;
         }
