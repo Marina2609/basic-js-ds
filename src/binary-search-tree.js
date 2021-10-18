@@ -97,16 +97,21 @@ module.exports = class BinarySearchTree {
       } else if (root.data < data){
         root.right = removeNode(root.right, data);
         return root;
-      } else { //если значения равны
-        if(root.left === null && root.right === null){ //нету левого и правого потомка
-          return null; //вернуть ноль, лист удален
+      } else { 
+        //если значения равны
+        //нету левого и правого потомка
+        if(root.left === null && root.right === null){
+          //вернуть ноль, лист удален
+          return null; 
         }
         if(root.left === null){
-          root = root.right; //заместить текущий узел его правым потомком
+          //заместить текущий узел его правым потомком
+          root = root.right;
           return root;
         }
         if(root.right === null){
-          root = root.left; //заместить текущий узел его левым потомком
+          //заместить текущий узел его левым потомком
+          root = root.left;
           return root;
         }
 
@@ -126,7 +131,7 @@ module.exports = class BinarySearchTree {
     let current = this.myRoot;
 
     while(current.left !== null){
-      current= current.left;
+      current = current.left;
     }
     return current.data;
   }
@@ -135,7 +140,7 @@ module.exports = class BinarySearchTree {
     let current = this.myRoot;
 
     while(current.right !== null){
-      current= current.right;
+      current = current.right;
     }
     return current.data;
   }

@@ -20,6 +20,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 
 module.exports = function removeKFromList(l, k) { 
+  //удаляем из односвязного списка l все элементы, которые имеют значение, равное k. 
   let list = l;
   if(l.value === k) {
     l = l.next;

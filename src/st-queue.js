@@ -26,6 +26,7 @@ module.exports = class Queue {
   }
 
   enqueue(value) {
+    // отправляем новый элемент в очередь
     const node = new ListNode(value);
     if(this.head){
       this.tail.next = node;
@@ -38,6 +39,7 @@ module.exports = class Queue {
   }
 
   dequeue() {
+    //удаляем первый элемент из очереди
     const current = this.head;
     this.head =  this.head.next;
     this.length--;

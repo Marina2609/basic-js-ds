@@ -17,14 +17,17 @@ const { NotImplementedError } = require('../extensions/index.js');
     this.items = [];
   }
   push(element) {
+    //добавляем элемент в стек
     this.items.push(element);
   }
 
   pop() {
+    //удаляем последний добавленный элемент из стека
     return this.items.pop();
   }
 
   peek() {
+    //получаем верхний элемент из стека
     return this.items[this.items.length - 1];
   }
 }
