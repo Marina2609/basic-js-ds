@@ -9,21 +9,21 @@ const { NotImplementedError } = require('../extensions/index.js');
 module.exports = class BinarySearchTree {
 
   constructor(){
-    this.root = null;
+    this.myRoot = null;
   }
 
   root() {
-    return this.root;
+    return this.myRoot;
   }
 
   add(data) {
     const node = new Node(data);
     
-    if(this.root === null){
-      return this.root = node;
+    if(this.myRoot === null){
+      return this.myRoot = node;
     }
 
-    let current = this.root;
+    let current = this.myRoot;
 
     while(current){
       if(node.data < current.data){
@@ -43,7 +43,7 @@ module.exports = class BinarySearchTree {
   }
 
   has(data) {
-    let current = this.root;
+    let current = this.myRoot;
 
     while(current){
       if(current === null){
@@ -64,7 +64,7 @@ module.exports = class BinarySearchTree {
   }
 
   find(data) {
-    let current = this.root;
+    let current = this.myRoot;
 
     while(current){
       if(current === null){
@@ -85,7 +85,7 @@ module.exports = class BinarySearchTree {
   }
 
   remove(data) {
-    this.root = removeNode(this.root, data);
+    this.myRoot = removeNode(this.myRoot, data);
 
     function removeNode(root, data){
       if(root === null){
@@ -123,27 +123,19 @@ module.exports = class BinarySearchTree {
   }
 
   min() {
-    if(this.root === null){
-      return;
-    }
+    let current = this.myRoot;
 
-    let current = this.root;
-
-    while(current.left){
-      current = current.left;
+    while(current.left !== null){
+      current= current.left;
     }
     return current.data;
   }
 
   max() {
-    if(this.root === null){
-      return;
-    }
-    
-    let current = this.root;
+    let current = this.myRoot;
 
-    while(current.right){
-      current = current.right;
+    while(current.right !== null){
+      current= current.right;
     }
     return current.data;
   }
